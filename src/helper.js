@@ -29,7 +29,17 @@ export function countBees(board, i, j) {
   return total || "";
 }
 
-export const borderRadiusStyle = (i, j) => {
+export function cloneBoard(board) {
+  return Array(board.length)
+    .fill("")
+    .map((_, i) =>
+      Array(board[i].length)
+        .fill("")
+        .map((_, j) => ({ ...board[i][j] }))
+    );
+}
+
+export function borderRadiusStyle(i, j) {
   if (i === 0 && j === 0) {
     return { borderRadius: "10px 0 0 0" };
   } else if (i === BOARD_SIZE - 1 && j === BOARD_SIZE - 1) {
@@ -39,4 +49,4 @@ export const borderRadiusStyle = (i, j) => {
   } else if (i === BOARD_SIZE - 1 && j === 0) {
     return { borderRadius: "0 0 0 10px" };
   }
-};
+}

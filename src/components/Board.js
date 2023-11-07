@@ -5,6 +5,7 @@ import {
   BOARD_SIZE,
   countBees,
   initialBoard,
+  cloneBoard,
 } from "../helper";
 import "../index.css";
 import Cell from "./Cell";
@@ -20,13 +21,7 @@ const Board = () => {
 
     setBoard((oldBoard) => {
       //Clone Board
-      const newBoard = [];
-      for (let i = 0; i < BOARD_SIZE; i++) {
-        newBoard.push([]);
-        for (let j = 0; j < oldBoard[i].length; j++) {
-          newBoard[i].push({ ...oldBoard[i][j] });
-        }
-      }
+      const newBoard = cloneBoard(oldBoard);
 
       //Set Bees
       for (let i = 0; i < BOARD_SIZE; i++) {
@@ -53,13 +48,7 @@ const Board = () => {
   const gameOver = () => {
     setBoard((oldBoard) => {
       //Clone Board
-      const newBoard = Array(oldBoard.length)
-        .fill("")
-        .map((_, i) =>
-          Array(oldBoard[i].length)
-            .fill("")
-            .map((_, j) => ({ ...oldBoard[i][j] }))
-        );
+      const newBoard = cloneBoard(oldBoard);
 
       //Reveal who has not already revealed
       newBoard.forEach((rows) => {
@@ -78,13 +67,7 @@ const Board = () => {
     (iCell, jCell, rightClick) => {
       setBoard((oldBoard) => {
         //Clone Board
-        const newBoard = Array(oldBoard.length)
-          .fill("")
-          .map((_, i) =>
-            Array(oldBoard[i].length)
-              .fill("")
-              .map((_, j) => ({ ...oldBoard[i][j] }))
-          );
+        const newBoard = cloneBoard(oldBoard);
 
         if (rightClick) {
           //Right Mouse Click
@@ -142,7 +125,7 @@ const Board = () => {
       isBeeRevealedRef.current = false;
       gameOver();
     }
-  },[isBeeRevealedRef.current]);
+  }, [isBeeRevealedRef.current]);
 
   useEffect(() => {
     resetBoard();
