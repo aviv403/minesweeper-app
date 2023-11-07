@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { borderRadiusStyle, FLAG_ICON } from "../helper";
 
 function Cell({
