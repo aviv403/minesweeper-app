@@ -1,13 +1,53 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Cell {
+  border: 2px solid #bbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.unrevealed {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.unrevealed:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bee {
+  font-size: 40px;
+}
+
+.flag {
+  font-size: 20px;
+}
+
+.winner{
+  border: 2px solid rgb(129, 204, 110);
+  background: #fff;
+  color: rgb(149, 222, 131);
+}
+
+button {
+  margin: 20px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
