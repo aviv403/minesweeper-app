@@ -11,11 +11,6 @@ function Cell({
   isFlagged,
   isWinner,
 }) {
-
-  // useEffect(() => {
-  //   console.log(`Cell[${i}][${j}]`)
-  // })
-
   return (
     <div
       className={`Cell ${!revealed && "unrevealed"} ${isBee && "bee"} ${
